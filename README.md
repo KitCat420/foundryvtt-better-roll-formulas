@@ -62,13 +62,13 @@ Bitwise OR operation between `a` and `b`.
 #### Bitwise Xor `a ^ b` `bitXor(a, b)`
 Bitwise XOR operation between `a` and `b`.
 
-#### Bitwise Not `~a` `bitNot(a)`
+#### Bitwise Not `~a` `bitFlip(a)`
 Bitwise NOT operation on `a`.
 
-#### Bitwise Left Shift `a << b` `bitLShift(a, b)`
+#### Bitwise Left Shift `a << b` `leftShift(a, b)`
 Bitwise left shift operation on `a` by `b` bits.
 
-#### Bitwise Right Shift `a >> b` `bitRShift(a, b)`
+#### Bitwise Right Shift `a >> b` `rightShift(a, b)`
 Bitwise right shift operation on `a` by `b` bits.
 
 #### Bitwise Unsigned Right Shift `a >>> b` `unsignedBitShift(a, b)`
