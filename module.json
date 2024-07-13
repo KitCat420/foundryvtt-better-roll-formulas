@@ -1,0 +1,25 @@
+{
+  "id": "better-roll-formulas",
+  "title": "Better Roll Formulas",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "authors": [
+    {
+      "name": "KitCat",
+      "email": "katsulynx@gmail.com",
+      "discord": "kitcat"
+    }
+  ],
+  "esmodules": [
+    "modules/betterRollFormulas.mjs"
+  ],
+  "readme": "README.md",
+  "license": "LICENSE",
+  "bugs": "https://github.com/KitCat420/pf1e-hex-grids/issues",
+  "url": "#{URL}#",
+  "manifest": "#{MANIFEST}#",
+  "download": "#{DOWNLOAD}#"
+}
