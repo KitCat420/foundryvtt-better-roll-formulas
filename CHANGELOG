@@ -1,2 +1,3 @@
 #v1.0.1
 - Added new utility function `between`
+- Resolve an issue where operator precedence was not properly handled

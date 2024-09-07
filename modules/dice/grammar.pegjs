@@ -36,13 +36,13 @@
   }
 }}
 
-Term = Ternary / Operation / DicePool / Roll / FlavoredFunction / FlavoredNumber / FlavoredParenthetical
+Term = Ternary / ComparisonOperation / DicePool / Roll / FlavoredFunction / FlavoredNumber / FlavoredParenthetical
 
 /* === Ternary Production Rules === */
 Ternary = _ ifCase:TernaryFirst _ "?" _ thenCase:Term _ ":" _ elseCase:Term {
    return funcMap["ternaryOp"] + "(" + [ifCase, thenCase, elseCase].join(", ") + ")";
 }
-TernaryFirst = Operation / DicePool / Roll / FlavoredFunction / FlavoredNumber / FlavoredParenthetical
+TernaryFirst = ComparisonOperation / DicePool / Roll / FlavoredFunction / FlavoredNumber / FlavoredParenthetical
 
 /* === Dice Roll Production Rules === */
 DicePool = "{" _ first:Term tail:ExtraArgs* _ "}" mod:Modifier? flavor:flavor? {
@@ -65,6 +65,16 @@ RightRollTermHand = RollTermHand / [a-z]
 RollTermHand = NestedParenthetical / Numerical
 
 /* === Math and Logic Operation Production Rules === */
+ComparisonOperation = _ head:Operation _ tail:($("&&" / "||" / "??" / "?:") _ Operation _)* {
+  return tail.reduce((result, element) => {
+    const func = funcMap[element[0]] || null;
+      return func
+        ? func + "("+ result + ", " + element[2] + ")"
+        : result.trim() + " " + element[0] + " " + element[2];
+  }, head);
+}
+/ PrefixOperation
+
 Operation = _ head:OperationTerm _ tail:(mathLogicOp _ OperationTerm _)* {
   return tail.reduce((result, element) => {
     const func = funcMap[element[0]] || null;
@@ -74,6 +84,7 @@ Operation = _ head:OperationTerm _ tail:(mathLogicOp _ OperationTerm _)* {
   }, head);
 }
 / PrefixOperation
+
 OperationTerm = PrefixOperation / DicePool / Roll / FlavoredNumber / FlavoredFunction / FlavoredParenthetical
 
 PrefixOperation = _ prefixOp:prefixOp _ term:Term _ {
@@ -148,10 +159,9 @@ variable "Variable" = $("@" [a-z_]i [0-9a-z._]i*)
 prefixOp = "!" / "~"
 
 /* Math & logic operators in order of precedence */
-mathLogicOp = "?:" / $("*"|1..2|) / "/" / "%" / "+" / "-"
+mathLogicOp = $("*"|1..2|) / "/" / "%" / "+" / "-"
 / $([<>] "="?)
 / $("="|1..3|) / $("!" "="|1..2|)
-/ "??"
-/ $("&"|1..2|) / "^" / $("|"|1..2|) / "<<" / $(">"|2..3|)
+/ "&" / "^" / "|" / "<<" / $(">"|2..3|)
 
 _ "Whitespace" = [ ]*
