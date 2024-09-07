@@ -87,6 +87,15 @@ Artificially minimize all dice rolls that match the target to the minimum possib
 
 Artificially set all dice rolls that match the target to the provided value.
 
+### Sort `<quantity>d<faces>s<order>`
+
+**Examples**
+- `2d6s` - Sort all dice rolls in ascending order.
+- `2d6sa` - Sort all dice rolls in ascending order.
+- `2d6sd` - Sort all dice rolls in descending order.
+
+Sort all dice rolls in either ascending or descending order based on their result.
+
 ### Unique `<quantity>d<faces>u`
 
 **Examples**

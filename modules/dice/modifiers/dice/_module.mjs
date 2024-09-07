@@ -10,3 +10,6 @@ export {
     penetrate as xp,
     recursivePenetrate as xrp
 } from './penetrate.mjs'
+export {default as s} from './sort.mjs';
+export {default as sa} from './sort.mjs';
+export {default as sd} from './sort.mjs';
