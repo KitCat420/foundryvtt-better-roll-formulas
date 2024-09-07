@@ -30,3 +30,4 @@ export {default as ifNull} from './conditional/ifNull.mjs';
 
 /* Utility */
 export {default as lookup} from './utility/lookup.mjs';
+export {default as between} from './utility/between.mjs';
