@@ -67,6 +67,9 @@ Returns `b` if `a` is truthy, otherwise returns `c`.
 #### IfNull `a ?? b` `ifNull(a, b)`
 Returns `b` if `a` is `null` or `undefined`, otherwise returns `a`.
 
+#### If `if(a, b)`
+Returns `b` if `a` is truthy, otherwise returns `0`.
+
 ### Comparison Operators
 #### Equal `a = b` `a == b` `a === b` `eq(a, b)`
 Returns `true` if `a` is equal to `b`, otherwise returns `false`.
