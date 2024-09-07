@@ -1,9 +1,43 @@
 # FoundryVTT Better Roll Formulas
 
 This module aims to enhance roll formula capabilities in Foundry VTT. It provides a set of new functions and
-operators that can be used in roll formulas to make them more powerful and flexible. Users familiar with coding
-languages will find many familiar constructs, such as ternaries and logic operations.
+operators that can be used in roll formulas to make them more powerful and flexible, as well as new dice
+modifiers. Users familiar with coding  languages will find many familiar constructs, such as ternaries and logic operations.
 
+## List of new dice modifiers
+
+### Set `<quantity>d<faces>set<value><operator><target>`
+
+**Examples**
+- `2d6set1=3` - Set all dice rolls of 3 to 1.
+- `2d6set1<=3` - Set all dice rolls below or equal to 3 to 1.
+- `2d6set3<3` - Set all dice rolls below 3 to 3.
+- `2d6set4>=3` - Set all dice rolls above or equal to 3 to 4.
+- `2d6set5>3` - Set all dice rolls above 3 to 5.
+
+Artificially set all dice rolls that match the target to the provided value.
+
+### Maximize `<quantity>d<faces>mx<operator><target>`
+
+**Examples**
+- `2d6mx=1` - Maximize all dice rolls of 1.
+- `2d6mx<=3` - Maximize all dice rolls below or equal to 3.
+- `2d6mx<3` - Maximize all dice rolls below 3.
+- `2d6mx>=3` - Maximize all dice rolls above or equal to 3.
+- `2d6mx>3` - Maximize all dice rolls above 3.
+
+Artificially maximize all dice rolls that match the target to the maximum possible value.
+
+### Minimize `<quantity>d<faces>mn<operator><target>`
+
+**Examples**
+- `2d6mn=6` - Minimize all dice rolls of 6.
+- `2d6mn>=3` - Minimize all dice rolls above or equal to 3.
+- `2d6mn>3` - Minimize all dice rolls above 3.
+- `2d6mn<=3` - Minimize all dice rolls below or equal to 3.
+- `2d6mn<3` - Minimize all dice rolls below 3.
+
+Artificially minimize all dice rolls that match the target to the minimum possible value.
 
 ## List of available functions
 
