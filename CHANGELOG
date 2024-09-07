@@ -3,3 +3,4 @@
 - Resolve an issue where operator precedence was not properly handled
 - Added new conditional function `if`
 - Add new dice term modifiers `mn` (minimize), `mx` (maximize), and `set` (set to value)
+- Add new dice term modifier `u` (unique)

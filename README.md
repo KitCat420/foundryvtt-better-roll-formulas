@@ -6,17 +6,6 @@ modifiers. Users familiar with coding  languages will find many familiar constru
 
 ## List of new dice modifiers
 
-### Set `<quantity>d<faces>set<value><operator><target>`
-
-**Examples**
-- `2d6set1=3` - Set all dice rolls of 3 to 1.
-- `2d6set1<=3` - Set all dice rolls below or equal to 3 to 1.
-- `2d6set3<3` - Set all dice rolls below 3 to 3.
-- `2d6set4>=3` - Set all dice rolls above or equal to 3 to 4.
-- `2d6set5>3` - Set all dice rolls above 3 to 5.
-
-Artificially set all dice rolls that match the target to the provided value.
-
 ### Maximize `<quantity>d<faces>mx<operator><target>`
 
 **Examples**
@@ -38,6 +27,26 @@ Artificially maximize all dice rolls that match the target to the maximum possib
 - `2d6mn<3` - Minimize all dice rolls below 3.
 
 Artificially minimize all dice rolls that match the target to the minimum possible value.
+
+### Set `<quantity>d<faces>set<value><operator><target>`
+
+**Examples**
+- `2d6set1=3` - Set all dice rolls of 3 to 1.
+- `2d6set1<=3` - Set all dice rolls below or equal to 3 to 1.
+- `2d6set3<3` - Set all dice rolls below 3 to 3.
+- `2d6set4>=3` - Set all dice rolls above or equal to 3 to 4.
+- `2d6set5>3` - Set all dice rolls above 3 to 5.
+
+Artificially set all dice rolls that match the target to the provided value.
+
+### Unique `<quantity>d<faces>u`
+
+**Examples**
+- `2d6u` - Roll 2d6 and keep only unique results.
+
+Re-roll all dice results that are duplicate of previous results, keeping only unique values.
+If more dice are rolled than faces are available, re-roll dices from left to right until all
+values have been encountered at least once.
 
 ## List of available functions
 
