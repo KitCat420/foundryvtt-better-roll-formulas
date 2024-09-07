@@ -4,5 +4,5 @@
  * @returns {RegExp}
  */
 export function compareTerm(term) {
-    return new RegExp(`(?<term>${term})(?:(?<op>[<>]=?|=)(?<target>\\d+))?`, 'i');
+    return new RegExp(`^(?<term>${term})(?<op>[<>]=?|=|)(?<target>\\d+|)$`, 'i');
 }

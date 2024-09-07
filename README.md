@@ -6,6 +6,54 @@ modifiers. Users familiar with coding  languages will find many familiar constru
 
 ## List of new dice modifiers
 
+### Explode Compound `<quantity>d<faces>xc<operator><target>`
+
+**Examples**
+- `2d6xc=6` - Explode all dice rolls of 6 and sum their results.
+- `2d6xc<=3` - Explode all dice rolls below or equal to 3 and sum their results.
+- `2d6xc<3` - Explode all dice rolls below 3 and sum their results.
+- `2d6xc>=3` - Explode all dice rolls above or equal to 3 and sum their results.
+- `2d6xc>3` - Explode all dice rolls above 3 and sum their results.
+
+Explode all dice rolls that match the target and sum their results.
+
+### Explode Recursive Compound `<quantity>d<faces>xrc<operator><target>`
+
+**Examples**
+- `2d6xrc=6` - Explode all dice rolls of 6 and sum their results, re-rolling the dice.
+- `2d6xrc<=3` - Explode all dice rolls below or equal to 3 and sum their results, re-rolling the dice.
+- `2d6xrc<3` - Explode all dice rolls below 3 and sum their results, re-rolling the dice.
+- `2d6xrc>=3` - Explode all dice rolls above or equal to 3 and sum their results, re-rolling the dice.
+- `2d6xrc>3` - Explode all dice rolls above 3 and sum their results, re-rolling the dice.
+
+Explode all dice rolls that match the target and sum their results.
+Unlike Explode Compound, which only reroll the die once, recusive reroll will keep rolling as long
+as results meet the target.
+
+### Explode Penetrating `<quantity>d<faces>xp<operator><target>`
+
+**Examples**
+- `2d6xp=6` - Explode all dice rolls of 6, subtracting 1 from the newly rolled dice result.
+- `2d6xp<=3` - Explode all dice rolls below or equal to 3, subtracting 1 from the newly rolled dice result.
+- `2d6xp<3` - Explode all dice rolls below 3, subtracting 1 from the newly rolled dice result.
+- `2d6xp>=3` - Explode all dice rolls above or equal to 3, subtracting 1 from the newly rolled dice result.
+- `2d6xp>3` - Explode all dice rolls above 3, subtracting 1 from the newly rolled dice result.
+
+Explode all dice rolls that match the target, reducing the value of the extra rolled dice by 1.
+
+### Explode Recursive Penetrating `<quantity>d<faces>xrp<operator><target>`
+
+**Examples**
+- `2d6xrp=6` - Explode all dice rolls of 6, subtracting 1 from the newly rolled dice result and re-rolling the dice.
+- `2d6xrp<=3` - Explode all dice rolls below or equal to 3, subtracting 1 from the newly rolled dice result and re-rolling the dice.
+- `2d6xrp<3` - Explode all dice rolls below 3, subtracting 1 from the newly rolled dice result and re-rolling the dice.
+- `2d6xrp>=3` - Explode all dice rolls above or equal to 3, subtracting 1 from the newly rolled dice result and re-rolling the dice.
+- `2d6xrp>3` - Explode all dice rolls above 3, subtracting 1 from the newly rolled dice result and re-rolling the dice.
+
+Explode all dice rolls that match the target, reducing the value of the extra rolled dice by 1.
+Unlike Explode Penetrating, which only reroll the die once, recusive reroll will keep rolling as long
+as results meet the target.
+
 ### Maximize `<quantity>d<faces>mx<operator><target>`
 
 **Examples**

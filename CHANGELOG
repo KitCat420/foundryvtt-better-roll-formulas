@@ -4,3 +4,4 @@
 - Added new conditional function `if`
 - Add new dice term modifiers `mn` (minimize), `mx` (maximize), and `set` (set to value)
 - Add new dice term modifier `u` (unique)
+- Add new dice term modifiers `xc` (explode compound), `xrc` (explode recursive compount), `xp` (explode penetrating) and `xrp` (explode recursive penetrating)
