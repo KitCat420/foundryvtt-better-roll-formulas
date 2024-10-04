@@ -6,6 +6,8 @@ export {default as mod} from './math/mod.mjs';
 export {default as and} from './logic/and.mjs';
 export {default as or} from './logic/or.mjs';
 export {default as not} from './logic/not.mjs';
+export {default as even} from './logic/even.mjs';
+export {default as odd} from './logic/odd.mjs';
 
 /* Comparison */
 export {default as eq} from './comparison/eq.mjs';

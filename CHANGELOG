@@ -1,5 +1,6 @@
 #v1.1.1
 - Fix formulas not supporting signs in front of parenthetical terms
+- Add `odd` and `even` comparison functions
 
 #v1.1.0
 - Added new utility function `between`

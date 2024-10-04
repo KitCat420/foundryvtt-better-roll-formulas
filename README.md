@@ -126,6 +126,12 @@ Returns `a`, if `a` is truthy, otherwise returns `b`.
 #### Not `!a` `not(a)`
 Inverts `a` into a negated boolean value. Returns `false` if `a` is truthy, otherwise returns `true`.
 
+#### Odd `odd(a)`
+Returns `true` if `a` is an odd number, otherwise returns `false`.
+
+#### Even `even(a)`
+Returns `true` if `a` is an even number, otherwise returns `false`.
+
 ### Conditionals
 #### Ternary `a ? b : c` `ifThenElse(a, b, c)`
 Returns `b` if `a` is truthy, otherwise returns `c`.
