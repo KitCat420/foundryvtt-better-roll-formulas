@@ -13,7 +13,6 @@ Hooks.once("init", () => {
     Object.assign(CONFIG.Dice.terms.d.prototype.constructor.MODIFIERS, dice.modifiers.dice);
     console.debug(`Better Roll Formulas | Registering Dice Modifiers`);
 
-
     libWrapper.register(
         "better-roll-formulas",
         "Roll.prototype.constructor.parse",

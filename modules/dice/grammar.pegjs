@@ -92,16 +92,16 @@ PrefixOperation = _ prefixOp:prefixOp _ term:Term _ {
 }
 
 /* === Parentheticals === */
-FlavoredParenthetical = term:NestedParenthetical flavor:flavor? {
-  return term + (flavor || "");
+FlavoredParenthetical = sign:Sign? _ term:NestedParenthetical flavor:flavor? {
+  return (sign || "") + term + (flavor || "");
 }
 
-NestedParenthetical = "(" _ term:(NestedParenthetical / Parenthetical) _ ")" {
-  return term;
+NestedParenthetical = sign:Sign? _ "(" _ term:(NestedParenthetical / Parenthetical) _ ")" {
+  return (sign || "") + term;
 } / Parenthetical
 
-Parenthetical = "(" _ term:Term _ ")" {
-  return "(" + term + ")"
+Parenthetical = sign:Sign? _ "(" _ term:Term _ ")" {
+  return (sign || "") + "(" + term + ")"
 }
 
 /* === Function Production Rules === */

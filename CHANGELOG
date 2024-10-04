@@ -1,3 +1,6 @@
+#v1.1.1
+- Fix formulas not supporting signs in front of parenthetical terms
+
 #v1.1.0
 - Added new utility function `between`
 - Resolve an issue where operator precedence was not properly handled

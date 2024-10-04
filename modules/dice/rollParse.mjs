@@ -16,7 +16,8 @@ export default function parse(wrapped, formula, data = {}) {
             }
         }
     } catch (e) {
-        console.error("Better Roll Formulas | Error parsing formula", e)
+        console.warn("Better Roll Formulas | Failed to parse formula:", formula);
+        console.error("Better Roll Formulas | ", e)
     }
     return wrapped(formula, data);
 }
