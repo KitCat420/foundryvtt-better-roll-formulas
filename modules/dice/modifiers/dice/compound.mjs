@@ -3,7 +3,6 @@ import {compareTerm} from "../../util.mjs";
 async function _compound(op, target, {recursive = false} = {}) {
     let checked = 0;
     let rolled = 0;
-    const initial = this.results.length;
 
     while (checked < this.results.length) {
         const r = this.results[checked];

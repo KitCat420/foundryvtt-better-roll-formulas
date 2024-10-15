@@ -1,9 +1,13 @@
 /* Math */
 export {default as mod} from './math/mod.mjs';
+export {default as round} from './math/round.mjs';
+export {default as ceil} from './math/ceil.mjs';
+export {default as floor} from './math/floor.mjs';
 
 /* Logic */
 export {default as and} from './logic/and.mjs';
 export {default as or} from './logic/or.mjs';
+export {default as xor} from './logic/xor.mjs';
 export {default as not} from './logic/not.mjs';
 export {default as even} from './logic/even.mjs';
 export {default as odd} from './logic/odd.mjs';

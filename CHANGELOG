@@ -1,7 +1,9 @@
 #v1.2.0
 - Added `xor` function
 - Changed `and` and `or` functions to accept arbitrary number of arguments
+- Cast comparison and logic boolean return values to integers
 - Remove `exp` function (already exists in FoundryVTT natively)
+- Add new `round`, `ceil` and `floor` functions that support passing precision
 
 #v1.1.1
 - Fix formulas not supporting signs in front of parenthetical terms

@@ -1,3 +1,3 @@
 export default function not(a) {
-    return !a;
+    return +(!a);
 }

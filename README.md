@@ -109,6 +109,15 @@ values have been encountered at least once.
 
 ### Math Functions
 
+#### Round `round(a)` `round(a, precision)`
+Rounds `a` to the nearest integer. Optionally, rounds to the specified number of decimal places specified by `precision`, rather than to the closest whole number.
+
+#### Floor (round down) `floor(a)` `floor(a, precision)`
+Rounds `a` down to the nearest integer. Optionally, rounds to the specified number of decimal places specified by `precision`, rather than to the closest whole number.
+
+#### Ceiling (round up) `ceil(a)` `ceil(a, precision)`
+Rounds `a` up to the nearest integer. Optionally, rounds to the specified number of decimal places specified by `precision`, rather than to the closest whole number.
+
 #### Exponential `a ** b` `exp(a, b)` `pow(a, b)`
 Exponential term of the form `aᵇ`.
 
@@ -127,13 +136,13 @@ Returns first truthy argument, or `0` if all are falsy. Supports arbitrary numbe
 Returns first truthy argument if only one argument is truthy, otherwise `0`, otherwise returns `false`.
 
 #### Not `!a` `not(a)`
-Inverts `a` into a negated boolean value. Returns `false` if `a` is truthy, otherwise returns `true`.
+Returns `0` if `a` was truthy, otherwise returns `1`.
 
 #### Odd `odd(a)`
-Returns `true` if `a` is an odd number, otherwise returns `false`.
+Returns `1` if `a` is an odd number, otherwise returns `0`.
 
 #### Even `even(a)`
-Returns `true` if `a` is an even number, otherwise returns `false`.
+Returns `1` if `a` is an even number, otherwise returns `0`.
 
 ### Conditionals
 #### Ternary `a ? b : c` `ifThenElse(a, b, c)`
@@ -147,22 +156,22 @@ Returns `b` if `a` is truthy, otherwise returns `0`.
 
 ### Comparison Operators
 #### Equal `a = b` `a == b` `a === b` `eq(a, b)`
-Returns `true` if `a` is equal to `b`, otherwise returns `false`.
+Returns `1` if `a` is equal to `b`, otherwise returns `0`.
 
 #### Not Equal `a != b` `a !== b` `neq(a, b)`
-Returns `true` if `a` is not equal to `b`, otherwise returns `false`.
+Returns `1` if `a` is not equal to `b`, otherwise returns `0`.
 
 #### Greater Than `a > b` `gt(a, b)`
-Returns `true` if `a` is greater than `b`, otherwise returns `false`.
+Returns `1` if `a` is greater than `b`, otherwise returns `0`.
 
 #### Greater Than or Equal `a >= b` `gte(a, b)`
-Returns `true` if `a` is greater than or equal to `b`, otherwise returns `false`.
+Returns `1` if `a` is greater than or equal to `b`, otherwise returns `0`.
 
 #### Less Than `a < b` `lt(a, b)`
-Returns `true` if `a` is less than `b`, otherwise returns `false`.
+Returns `1` if `a` is less than `b`, otherwise returns `0`.
 
 #### Less Than or Equal `a <= b` `lte(a, b)`
-Returns `true` if `a` is less than or equal to `b`, otherwise returns `false`.
+Returns `1` if `a` is less than or equal to `b`, otherwise returns `0`.
 
 ### Bitwise Operators
 #### Bitwise And `a & b` `bitAnd(a, b)`
