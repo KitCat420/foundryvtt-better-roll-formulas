@@ -118,7 +118,7 @@ Rounds `a` down to the nearest integer. Optionally, rounds to the specified numb
 #### Ceiling (round up) `ceil(a)` `ceil(a, precision)`
 Rounds `a` up to the nearest integer. Optionally, rounds to the specified number of decimal places specified by `precision`, rather than to the closest whole number.
 
-#### Exponential `a ** b` `exp(a, b)` `pow(a, b)`
+#### Exponential `a ** b` `pow(a, b)`
 Exponential term of the form `aᵇ`.
 
 #### Modulo `a % b` `mod(a, b)`

@@ -1,7 +1,7 @@
 {{
   const funcMap = {
     /* Math */
-    "**": "exp",
+    "**": "pow",
     "%": "mod",
 
     /* Logic */
