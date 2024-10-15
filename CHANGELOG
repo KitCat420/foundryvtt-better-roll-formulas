@@ -1,3 +1,6 @@
+#v1.2.0
+- Remove `exp` function (already exists in FoundryVTT natively)
+
 #v1.1.1
 - Fix formulas not supporting signs in front of parenthetical terms
 - Add `odd` and `even` comparison functions

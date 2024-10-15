@@ -1,5 +1,4 @@
 /* Math */
-export {default as exp} from './math/exp.mjs';
 export {default as mod} from './math/mod.mjs';
 
 /* Logic */
