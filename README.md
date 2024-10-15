@@ -122,6 +122,8 @@ Returns `b` if both `a` and `b` are truthy.
 
 #### Or `a || b` `a ?: b` `or(a, b)`
 Returns `a`, if `a` is truthy, otherwise returns `b`.
+#### Xor `xor(a, b[, ...])`
+Returns first truthy argument if only one argument is truthy, otherwise `0`, otherwise returns `false`.
 
 #### Not `!a` `not(a)`
 Inverts `a` into a negated boolean value. Returns `false` if `a` is truthy, otherwise returns `true`.
