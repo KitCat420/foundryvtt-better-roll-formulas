@@ -136,7 +136,7 @@ Returns first truthy argument, or `0` if all are falsy. Supports arbitrary numbe
 Returns first truthy argument if only one argument is truthy, otherwise `0`, otherwise returns `false`.
 
 #### Not `!a` `not(a)`
-Returns `0` if `a` was truthy, otherwise returns `1`.
+Returns `0` if `a` is truthy, otherwise returns `1`.
 
 #### Odd `odd(a)`
 Returns `1` if `a` is an odd number, otherwise returns `0`.
