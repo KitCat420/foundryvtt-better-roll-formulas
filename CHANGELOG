@@ -1,5 +1,6 @@
 #v1.2.0
 - Added `xor` function
+- Changed `and` and `or` functions to accept arbitrary number of arguments
 - Remove `exp` function (already exists in FoundryVTT natively)
 
 #v1.1.1

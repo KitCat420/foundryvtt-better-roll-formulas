@@ -117,11 +117,12 @@ Remainder of the division of `a` by `b`.
 
 ### Logic Functions
 
-#### And `a && b` `and(a, b)`
-Returns `b` if both `a` and `b` are truthy.
+#### And `a && b [&& ...]` `and(a, b[, ...])`
+Returns last argument, if all arguments are truthy. Supports arbitrary number of arguments.
 
-#### Or `a || b` `a ?: b` `or(a, b)`
-Returns `a`, if `a` is truthy, otherwise returns `b`.
+#### Or `a || b [|| ...]` `a ?: b [?: ...]` `or(a, b[, ...])`
+Returns first truthy argument, or `0` if all are falsy. Supports arbitrary number of arguments.
+
 #### Xor `xor(a, b[, ...])`
 Returns first truthy argument if only one argument is truthy, otherwise `0`, otherwise returns `false`.
 
