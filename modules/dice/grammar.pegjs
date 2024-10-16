@@ -36,7 +36,7 @@
   }
 }}
 
-Term = Ternary / ComparisonOperation / DicePool / Roll / FlavoredFunction / FlavoredNumber / FlavoredParenthetical
+Term = Ternary / ComparisonOperation / DicePool / Roll / FlavoredFunction / FlavoredNumber / FlavoredParenthetical / String
 
 /* === Ternary Production Rules === */
 Ternary = _ ifCase:TernaryFirst _ "?" _ thenCase:Term _ ":" _ elseCase:Term {
@@ -85,7 +85,7 @@ Operation = _ head:OperationTerm _ tail:(mathLogicOp _ OperationTerm _)* {
 }
 / PrefixOperation
 
-OperationTerm = PrefixOperation / DicePool / Roll / FlavoredNumber / FlavoredFunction / FlavoredParenthetical
+OperationTerm = PrefixOperation / DicePool / Roll / FlavoredNumber / FlavoredFunction / FlavoredParenthetical / String
 
 PrefixOperation = _ prefixOp:prefixOp _ term:Term _ {
   return funcMap[prefixOp] + "(" + term + ")"
@@ -117,8 +117,8 @@ Function = _ func:functionName "(" _ head:Term? tail:ExtraArgs* _ ")" {
 
 ExtraArgs = _ "," _ Term _
 
-/* === Numbers and Variable Production Rules === */
-FlavoredNumber = term:NumberOrVariable flavor:flavor? {
+/* === Numbers, Strings and Variable Production Rules === */
+FlavoredNumber = term:NumberOrVariable flavor:flavor? !String {
 	return term + (flavor || "");
 }
 
@@ -144,7 +144,14 @@ Sign = signs:(@sign _)* {
 
 Numerical = numerical / partialNumerical
 
+String = term:(replacedData / plainString) flavor:flavor? {
+	return term + (flavor || "");
+}
+
 /* === Terminals === */
+replacedData = $("$" $[^$]+ "$")
+plainString = $[^ (){}[\]$,+\-*%/]+
+
 sign "Sign" = $([-+] _)
 modifier "Roll Modifier" = $([^ (){}[\]$+\-*/,]+)
 flavor "Roll Flavor" = $("[" [^[\]]* "]")

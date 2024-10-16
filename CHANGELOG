@@ -1,5 +1,6 @@
 #v1.2.1
 - Cast result of `between` function to integer
+- Fix roll grammar to allow string terms
 
 #v1.2.0
 - Added `xor` function
