@@ -201,4 +201,4 @@ Bitwise zero-fill right shift operation on `a` by `b` bits.
 Returns the value at position `index`, or `fallback` if `index` is out of bounds.
 
 #### Between `between(value, min, max)`
-Returns `true`, if the provided `value` lies between `min` and `max` (exclusive).
+Returns `1`, if the provided `value` lies between `min` and `max` (exclusive), otherwise returns `0`.
