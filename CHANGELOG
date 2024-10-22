@@ -1,3 +1,6 @@
+#v1.2.2
+- Fix sign support for functions
+
 #v1.2.1
 - Cast result of `between` function to integer
 - Fix roll grammar to allow string terms

@@ -306,8 +306,8 @@ function peg$parse(input, options) {
   var peg$f2 = function(left, right, mod, flavor) {
   return left + "d" + right + (mod || "") + (flavor || "")
 };
-  var peg$f3 = function(func, right, mod, flavor) {
-  return "(" + func + ")d" + right + (mod || "") + (flavor || "")
+  var peg$f3 = function(sign, func, right, mod, flavor) {
+  return (sign || "") + "(" + func + ")d" + right + (mod || "") + (flavor || "")
 };
   var peg$f4 = function(head, tail) {
   return tail.reduce((result, element) => {
@@ -340,8 +340,8 @@ function peg$parse(input, options) {
   var peg$f10 = function(func, flavor) {
   return func + (flavor || "");
 };
-  var peg$f11 = function(func, head, tail) {
-  return func + "(" + tail.reduce((result, element) => {
+  var peg$f11 = function(sign, func, head, tail) {
+  return (sign || "") + func + "(" + tail.reduce((result, element) => {
     return result + ", " + element[3]
   }, head || "") + ")"
 };
@@ -362,7 +362,7 @@ function peg$parse(input, options) {
     return element[0].trim() == "-" ? (result == "+" ? "-" : "+") : result;
   }, "+") == "+" ? "" : "-";
 };
-  var peg$f17 = function(term, flavor) { 
+  var peg$f17 = function(term, flavor) {
 	return term + (flavor || "");
 };
   var peg$f18 = function(num) {
@@ -749,31 +749,34 @@ function peg$parse(input, options) {
   }
 
   function peg$parseFunctionRoll() {
-    var s0, s1, s2, s3, s4, s5;
+    var s0, s1, s2, s3, s4, s5, s6, s7, s8;
 
     s0 = peg$currPos;
-    s1 = peg$parseFunction();
-    if (s1 !== peg$FAILED) {
+    s1 = peg$parse_();
+    s2 = peg$parseSign();
+    s3 = peg$parse_();
+    s4 = peg$parseFunction();
+    if (s4 !== peg$FAILED) {
       if (input.charCodeAt(peg$currPos) === 100) {
-        s2 = peg$c4;
+        s5 = peg$c4;
         peg$currPos++;
       } else {
-        s2 = peg$FAILED;
+        s5 = peg$FAILED;
         if (peg$silentFails === 0) { peg$fail(peg$e4); }
       }
-      if (s2 !== peg$FAILED) {
-        s3 = peg$parseRightRollTermHand();
-        if (s3 !== peg$FAILED) {
-          s4 = peg$parseModifier();
-          if (s4 === peg$FAILED) {
-            s4 = null;
+      if (s5 !== peg$FAILED) {
+        s6 = peg$parseRightRollTermHand();
+        if (s6 !== peg$FAILED) {
+          s7 = peg$parseModifier();
+          if (s7 === peg$FAILED) {
+            s7 = null;
           }
-          s5 = peg$parseflavor();
-          if (s5 === peg$FAILED) {
-            s5 = null;
+          s8 = peg$parseflavor();
+          if (s8 === peg$FAILED) {
+            s8 = null;
           }
           peg$savedPos = s0;
-          s0 = peg$f3(s1, s3, s4, s5);
+          s0 = peg$f3(s2, s4, s6, s7, s8);
         } else {
           peg$currPos = s0;
           s0 = peg$FAILED;
@@ -1202,42 +1205,44 @@ function peg$parse(input, options) {
   }
 
   function peg$parseFunction() {
-    var s0, s1, s2, s3, s4, s5, s6, s7, s8;
+    var s0, s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
 
     s0 = peg$currPos;
     s1 = peg$parse_();
-    s2 = peg$parsefunctionName();
-    if (s2 !== peg$FAILED) {
+    s2 = peg$parseSign();
+    s3 = peg$parse_();
+    s4 = peg$parsefunctionName();
+    if (s4 !== peg$FAILED) {
       if (input.charCodeAt(peg$currPos) === 40) {
-        s3 = peg$c9;
+        s5 = peg$c9;
         peg$currPos++;
       } else {
-        s3 = peg$FAILED;
+        s5 = peg$FAILED;
         if (peg$silentFails === 0) { peg$fail(peg$e10); }
       }
-      if (s3 !== peg$FAILED) {
-        s4 = peg$parse_();
-        s5 = peg$parseTerm();
-        if (s5 === peg$FAILED) {
-          s5 = null;
+      if (s5 !== peg$FAILED) {
+        s6 = peg$parse_();
+        s7 = peg$parseTerm();
+        if (s7 === peg$FAILED) {
+          s7 = null;
         }
-        s6 = [];
-        s7 = peg$parseExtraArgs();
-        while (s7 !== peg$FAILED) {
-          s6.push(s7);
-          s7 = peg$parseExtraArgs();
+        s8 = [];
+        s9 = peg$parseExtraArgs();
+        while (s9 !== peg$FAILED) {
+          s8.push(s9);
+          s9 = peg$parseExtraArgs();
         }
-        s7 = peg$parse_();
+        s9 = peg$parse_();
         if (input.charCodeAt(peg$currPos) === 41) {
-          s8 = peg$c10;
+          s10 = peg$c10;
           peg$currPos++;
         } else {
-          s8 = peg$FAILED;
+          s10 = peg$FAILED;
           if (peg$silentFails === 0) { peg$fail(peg$e11); }
         }
-        if (s8 !== peg$FAILED) {
+        if (s10 !== peg$FAILED) {
           peg$savedPos = s0;
-          s0 = peg$f11(s2, s5, s6);
+          s0 = peg$f11(s2, s4, s7, s8);
         } else {
           peg$currPos = s0;
           s0 = peg$FAILED;

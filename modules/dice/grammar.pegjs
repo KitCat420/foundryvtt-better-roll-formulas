@@ -57,8 +57,8 @@ DiceRoll = left:RollTermHand "d" right:RightRollTermHand mod:Modifier? flavor:fl
   return left + "d" + right + (mod || "") + (flavor || "")
 }
 
-FunctionRoll = func:Function "d" right:RightRollTermHand mod:Modifier? flavor:flavor? {
-  return "(" + func + ")d" + right + (mod || "") + (flavor || "")
+FunctionRoll = _ sign:Sign? _ func:Function "d" right:RightRollTermHand mod:Modifier? flavor:flavor? {
+  return (sign || "") + "(" + func + ")d" + right + (mod || "") + (flavor || "")
 }
 
 RightRollTermHand = RollTermHand / [a-z]
@@ -109,8 +109,8 @@ FlavoredFunction = func:Function flavor:flavor? {
   return func + (flavor || "");
 }
 
-Function = _ func:functionName "(" _ head:Term? tail:ExtraArgs* _ ")" {
-  return func + "(" + tail.reduce((result, element) => {
+Function = _ sign:Sign? _ func:functionName "(" _ head:Term? tail:ExtraArgs* _ ")" {
+  return (sign || "") + func + "(" + tail.reduce((result, element) => {
     return result + ", " + element[3]
   }, head || "") + ")"
 }
