@@ -1,3 +1,6 @@
+#v1.2.3
+- Fix comparison operators sometimes not parsing properly
+
 #v1.2.2
 - Fix sign support for functions
 

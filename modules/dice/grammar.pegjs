@@ -65,7 +65,7 @@ RightRollTermHand = RollTermHand / [a-z]
 RollTermHand = NestedParenthetical / Numerical
 
 /* === Math and Logic Operation Production Rules === */
-ComparisonOperation = _ head:Operation _ tail:($("&&" / "||" / "??" / "?:") _ Operation _)* {
+ComparisonOperation = _ head:Operation _ tail:($("&"|1..2| / "|"|1..2| / "??" / "?:") _ Operation _)* {
   return tail.reduce((result, element) => {
     const func = funcMap[element[0]] || null;
       return func
@@ -169,6 +169,6 @@ prefixOp = "!" / "~"
 mathLogicOp = $("*"|1..2|) / "/" / "%" / "+" / "-"
 / $([<>] "="?)
 / $("="|1..3|) / $("!" "="|1..2|)
-/ "&" / "^" / "|" / "<<" / $(">"|2..3|)
+/ "^" / "<<" / $(">"|2..3|)
 
 _ "Whitespace" = [ ]*
