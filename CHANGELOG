@@ -1,3 +1,6 @@
+#v1.2.4
+- Fix missing whitespaces after variable names leading to issues
+
 #v1.2.3
 - Fix comparison operators sometimes not parsing properly
 

@@ -118,7 +118,7 @@ Function = _ sign:Sign? _ func:functionName "(" _ head:Term? tail:ExtraArgs* _ "
 ExtraArgs = _ "," _ Term _
 
 /* === Numbers, Strings and Variable Production Rules === */
-FlavoredNumber = term:NumberOrVariable flavor:flavor? !String {
+FlavoredNumber = term:NumberOrVariable flavor:flavor? ![0-9a-z._] {
 	return term + (flavor || "");
 }
 
@@ -137,20 +137,18 @@ Modifier = mod:modifier _ tail:Parenthetical? {
 }
 
 Sign = signs:(@sign _)* {
-  return signs.reduce((result, element) => {
-    return element[0].trim() == "-" ? (result == "+" ? "-" : "+") : result;
-  }, "+") == "+" ? "" : "-";
+  return signs.filter(sign => sign === "-").length % 2 ? "-" : "";
 }
 
 Numerical = numerical / partialNumerical
 
-String = term:(replacedData / plainString) flavor:flavor? {
+String = !"@" term:(replacedData / plainString) flavor:flavor? {
 	return term + (flavor || "");
 }
 
 /* === Terminals === */
 replacedData = $("$" $[^$]+ "$")
-plainString = $[^ (){}[\]$,+\-*%/]+
+plainString = $(!"@" [^ (){}[\]$,+\-*%/<>=?:]+)
 
 sign "Sign" = $([-+] _)
 modifier "Roll Modifier" = $([^ (){}[\]$+\-*/,]+)
