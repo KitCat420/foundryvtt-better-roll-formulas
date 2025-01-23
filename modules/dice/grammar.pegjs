@@ -118,17 +118,17 @@ Function = _ sign:Sign? _ func:functionName "(" _ head:Term? tail:ExtraArgs* _ "
 ExtraArgs = _ "," _ Term _
 
 /* === Numbers, Strings and Variable Production Rules === */
-FlavoredNumber = term:NumberOrVariable flavor:flavor? ![0-9a-z._] {
+FlavoredNumber = _ term:NumberOrVariable flavor:flavor? ![0-9a-z._] {
 	return term + (flavor || "");
 }
 
 NumberOrVariable = Number / Variable
 
-Number = sign:Sign tail:Numerical {
+Number = _ sign:Sign _ tail:Numerical {
   return sign + tail
 }
 
-Variable = sign:Sign _ tail:variable {
+Variable = _ sign:Sign _ tail:variable {
   return sign + tail
 }
 
@@ -137,7 +137,7 @@ Modifier = mod:modifier _ tail:Parenthetical? {
 }
 
 Sign = signs:(@sign _)* {
-  return signs.filter(sign => sign === "-").length % 2 ? "-" : "";
+  return signs.filter(sign => sign.trim() === "-").length % 2 ? "-" : "";
 }
 
 Numerical = numerical / partialNumerical

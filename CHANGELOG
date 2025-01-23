@@ -1,3 +1,7 @@
+#v1.2.6
+- Improve parse speed on complex formulae
+- Prevent formulae with signed numbers with spaces (e.g. `- 1`) to lose sign.
+
 #v1.2.5
 - Fix variables not supporting dashes
 
