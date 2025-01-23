@@ -1,3 +1,6 @@
+#v1.2.5
+- Fix variables not supporting dashes
+
 #v1.2.4
 - Fix missing whitespaces after variable names leading to issues
 

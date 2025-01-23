@@ -158,7 +158,7 @@ numerical = $([0-9]+ ("." [0-9]+)?)
 partialNumerical = "." num:$[0-9]+ {
   return "0." + num;
 }
-variable "Variable" = $("@" [a-z_]i [0-9a-z._]i*)
+variable "Variable" = $("@" [a-z_]i [0-9a-z._]i* ("-" [a-z_.]i [0-9a-z._]i*)*)
 
 /* Prefix operators */
 prefixOp = "!" / "~"
