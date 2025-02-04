@@ -1,7 +1,7 @@
 {
   "id": "better-roll-formulas",
   "title": "Better Roll Formulas",
-  "version": "1.2.3",
+  "version": "1.2.6",
   "compatibility": {
     "minimum": "12",
     "verified": "13"
