@@ -1,3 +1,6 @@
+#v1.2.7
+- Add formula transformation cache, drastically improving performance
+
 #v1.2.6
 - Improve parse speed on complex formulae
 - Prevent formulae with signed numbers with spaces (e.g. `- 1`) to lose sign.
