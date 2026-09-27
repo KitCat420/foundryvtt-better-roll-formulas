@@ -11,7 +11,5 @@ export default async function unique(modifier) {
         this.results = this.results.reverse();
     }
 
-    console.log(this.results);
-
     return this.results;
 }

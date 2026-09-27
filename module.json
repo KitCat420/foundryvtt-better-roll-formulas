@@ -1,10 +1,10 @@
 {
   "id": "better-roll-formulas",
   "title": "Better Roll Formulas",
-  "version": "1.2.7",
+  "version": "1.3.0",
   "compatibility": {
     "minimum": "12",
-    "verified": "13"
+    "verified": "14"
   },
   "authors": [
     {
@@ -26,7 +26,7 @@
   },
   "readme": "README.md",
   "license": "LICENSE",
-  "bugs": "https://github.com/KitCat420/pf1e-hex-grids/issues",
+  "bugs": "https://github.com/KitCat420/foundryvtt-better-roll-formulas/issues",
   "url": "#{URL}#",
   "manifest": "#{MANIFEST}#",
   "download": "#{DOWNLOAD}#"

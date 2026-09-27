@@ -11,7 +11,7 @@ export default function maximize(modifier) {
 
     const currentResults = [...this.results];
     for(let r of currentResults) {
-        if(DiceTerm.compareResult(r.result, op, target)) {
+        if(foundry.dice.terms.DiceTerm.compareResult(r.result, op, target)) {
             r.rerolled = true;
             r.active = false;
 

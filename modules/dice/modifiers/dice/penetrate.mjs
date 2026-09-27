@@ -10,7 +10,7 @@ async function _penetrate(op, target, {recursive = false} = {}) {
         if (!r.active) continue;
 
         // Determine whether to re-roll the result
-        if (DiceTerm.compareResult(r.result, op, target)) {
+        if (foundry.dice.terms.DiceTerm.compareResult(r.result, op, target)) {
             r.exploded = true;
             await this.roll({reroll: true});
         }
@@ -34,7 +34,8 @@ export async function penetrate(modifier) {
     if (!match) return false;
     if(!match.groups.op) match.groups.op = '=';
     if(!match.groups.target) match.groups.target = this.faces;
-    const {op, target} = match.groups;
+    const op = match.groups.op;
+    const target = parseInt(match.groups.target);
 
     return _penetrate.call(this, op, target);
 }
@@ -46,6 +47,7 @@ export async function recursivePenetrate(modifier) {
     if(!match.groups.op) match.groups.op = '=';
     if(!match.groups.target) match.groups.target = this.faces;
 
-    const {op, target} = match.groups;
+    const op = match.groups.op;
+    const target = parseInt(match.groups.target);
     return _penetrate.call(this, op, target, {recursive: true});
 }

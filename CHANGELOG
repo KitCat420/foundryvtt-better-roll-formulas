@@ -1,3 +1,9 @@
+#v1.3.0
+- FoundryVTT v14 compatibility: replace removed `DiceTerm` global in custom dice modifiers (`mx`, `mn`, `set`, `xc`, `xrc`, `xp`, `xrp`)
+- Support the `ᚖ` replaced-data delimiter used since v13 in the roll grammar (formulas containing object/array data failed to parse)
+- Fix `xc`, `xrc`, `xp` and `xrp` not triggering when given an explicit target (e.g. `4d6xc6`)
+- Remove debug logging from sort modifier
+
 #v1.2.7
 - Add formula transformation cache, drastically improving performance
 

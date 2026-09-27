@@ -10,7 +10,7 @@ async function _compound(op, target, {recursive = false} = {}) {
         if (!r.active) continue;
 
         let current = r;
-        while(DiceTerm.compareResult(current.result, op, target)) {
+        while(foundry.dice.terms.DiceTerm.compareResult(current.result, op, target)) {
             current.exploded = true;
 
             current = await this.roll({reroll: true});
@@ -36,7 +36,8 @@ export async function compound(modifier) {
     if (!match) return false;
     if(!match.groups.op) match.groups.op = '=';
     if(!match.groups.target) match.groups.target = this.faces;
-    const {op, target} = match.groups;
+    const op = match.groups.op;
+    const target = parseInt(match.groups.target);
 
     return _compound.call(this, op, target);
 }
@@ -48,6 +49,7 @@ export async function recursiveCompound(modifier) {
     if(!match.groups.op) match.groups.op = '=';
     if(!match.groups.target) match.groups.target = this.faces;
 
-    const {op, target} = match.groups;
+    const op = match.groups.op;
+    const target = parseInt(match.groups.target);
     return _compound.call(this, op, target, {recursive: true});
 }

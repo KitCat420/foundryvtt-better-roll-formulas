@@ -147,8 +147,8 @@ String = !"@" term:(replacedData / plainString) flavor:flavor? {
 }
 
 /* === Terminals === */
-replacedData = $("$" $[^$]+ "$")
-plainString = $(!"@" [^ (){}[\]$,+\-*%/<>=?:]+)
+replacedData = $("ᚖ" $[^ᚖ]+ "ᚖ") / $("$" $[^$]+ "$")
+plainString = $(!"@" [^ (){}[\]$ᚖ,+\-*%/<>=?:]+)
 
 sign "Sign" = $([-+] _)
 modifier "Roll Modifier" = $([^ (){}[\]$+\-*/,]+)
